@@ -1,5 +1,6 @@
 import 'package:app_nation_case_study/product/theme/light_theme.dart';
 import 'package:app_nation_case_study/view/home/home_view.dart';
+import 'package:app_nation_case_study/view/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'AppNation Case Study App',
       debugShowCheckedModeBanner: false,
       theme: LightTheme().themeData,
-      home: const HomeView(),
+      home: const SplashView(),
     );
   }
 }
