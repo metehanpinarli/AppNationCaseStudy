@@ -1,4 +1,5 @@
 import 'package:app_nation_case_study/view/home_view.dart';
+import 'package:app_nation_case_study/view/settings_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeView(),
+      home: const SettingsView(),
     );
   }
 }
