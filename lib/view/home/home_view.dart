@@ -1,12 +1,7 @@
-import 'dart:ui';
-
-import 'package:app_nation_case_study/product/extension/context_extension.dart';
-import 'package:app_nation_case_study/product/resources/assets/assets_constants.dart';
 import 'package:app_nation_case_study/product/resources/sizes/sizes.dart';
-import 'package:app_nation_case_study/product/resources/style/color_palette.dart';
 import 'package:app_nation_case_study/view/home/widgets/grid_view_item_card.dart';
+import 'package:app_nation_case_study/view/home/widgets/search_input_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../product/widgets/navigation_bar/navigation_bar_widget.dart';
 
@@ -33,11 +28,12 @@ class HomeView extends StatelessWidget {
                   mainAxisSpacing: Sizes.defaultPadding,
                   childAspectRatio: (1 / 1),
                 ),
-                itemBuilder: (context, index) {
+                itemBuilder: (context, _) {
                   return const GridViewItemCard();
                 },
               ),
             ),
+            const SearchInputWidget(),
           ],
         ),
       ),
