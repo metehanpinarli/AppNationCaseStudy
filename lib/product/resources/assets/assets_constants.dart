@@ -13,6 +13,7 @@ enum AssetIcons {
   ic_star,
   ic_wrench,
   ic_arrow_up_right,
+  ic_close,
 }
 
 class _AssetPaths {

@@ -24,9 +24,21 @@ class LightTheme {
           backgroundColor: Colors.white,
           titleTextStyle: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),
         ),
-
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: ColorPalette.darkBlue,
+            foregroundColor: Colors.white,
+            elevation: 0,
+            minimumSize: const Size(double.infinity, 56),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, letterSpacing: 0.9),
+          ),
+        ),
         textTheme: const TextTheme(
-            bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black, letterSpacing: 0.16),
-            bodySmall: TextStyle(color: Colors.black, fontSize: 11, fontWeight: FontWeight.w600, letterSpacing: 0.22)),
+          bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black, letterSpacing: 0.16),
+          bodySmall: TextStyle(color: Colors.black, fontSize: 11, fontWeight: FontWeight.w600, letterSpacing: 0.22),
+          headlineMedium:
+              TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: ColorPalette.darkBlue, letterSpacing: 0.2),
+        ),
       );
 }

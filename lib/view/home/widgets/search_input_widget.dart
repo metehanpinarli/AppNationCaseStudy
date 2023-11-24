@@ -2,6 +2,7 @@ import 'package:app_nation_case_study/product/extension/context_extension.dart';
 import 'package:app_nation_case_study/product/resources/style/color_palette.dart';
 import 'package:flutter/material.dart';
 
+
 class SearchInputWidget extends StatefulWidget {
   const SearchInputWidget({super.key});
 

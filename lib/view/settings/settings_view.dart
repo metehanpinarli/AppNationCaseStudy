@@ -1,6 +1,6 @@
 import 'package:app_nation_case_study/product/resources/assets/assets_constants.dart';
 import 'package:app_nation_case_study/product/resources/sizes/sizes.dart';
-import 'package:app_nation_case_study/view/settings/widgets/custom_divider_widget.dart';
+import 'package:app_nation_case_study/product/widgets/Divider/custom_divider_widget.dart';
 import 'package:app_nation_case_study/view/settings/widgets/custom_list_tile_widget.dart';
 import 'package:flutter/material.dart';
 
