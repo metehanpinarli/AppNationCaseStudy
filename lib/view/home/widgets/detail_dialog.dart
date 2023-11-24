@@ -1,5 +1,6 @@
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
 import 'package:app_nation_case_study/product/widgets/Divider/custom_divider_widget.dart';
+import 'package:app_nation_case_study/view/home/widgets/image_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../product/resources/assets/assets_constants.dart';
@@ -52,7 +53,7 @@ class DialogInformationWidget extends StatelessWidget {
           const CustomDividerWidget(),
           Text('Sub Breed 1', style: context.textTheme.bodyMedium),
           Text('Sub Breed 2', style: context.textTheme.bodyMedium),
-          ElevatedButton(onPressed: () {}, child: const Text('Generate')),
+          ElevatedButton(onPressed: () => const ImageDialog().show(context), child: const Text('Generate')),
         ],
       ),
     );
@@ -85,7 +86,7 @@ class DialogImageWidget extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(Sizes.minPadding),
                 child: SvgPicture.asset(AssetIcons.ic_close.path()),
               ),
             ),
