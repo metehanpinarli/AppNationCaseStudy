@@ -1,5 +1,5 @@
-import 'package:app_nation_case_study/view/home_view.dart';
-import 'package:app_nation_case_study/view/settings_view.dart';
+import 'package:app_nation_case_study/product/theme/light_theme.dart';
+import 'package:app_nation_case_study/view/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AppNation Case Study App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: LightTheme().themeData,
       home: const SettingsView(),
     );
   }
