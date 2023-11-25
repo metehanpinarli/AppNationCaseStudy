@@ -1,6 +1,6 @@
 part of 'dialog_bloc.dart';
 
-abstract class DialogEvent extends Equatable {
+abstract class DialogEvent{
   const DialogEvent();
 }
 
@@ -9,6 +9,5 @@ class GenerateImage extends DialogEvent {
 
   const GenerateImage({required this.breedName});
 
-  @override
-  List<Object?> get props => throw UnimplementedError();
 }
+

@@ -1,6 +1,6 @@
 part of 'dialog_bloc.dart';
 
-abstract class DialogState extends Equatable {
+abstract class DialogState{
   const DialogState();
 }
 
@@ -14,8 +14,6 @@ class Success extends DialogState {
 
   const Success({required this.imageUrl});
 
-  @override
-  List<Object?> get props => throw UnimplementedError();
 }
 
 class Error extends DialogState {

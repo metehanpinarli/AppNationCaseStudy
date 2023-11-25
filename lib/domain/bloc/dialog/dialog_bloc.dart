@@ -17,6 +17,7 @@ class DialogBloc extends Bloc<DialogEvent, DialogState> {
   }
 
   FutureOr<void> _onGenerateImage(GenerateImage event, emit) async {
+    emit(DialogInitial());
     final imageResponse = await _iBreedsRepository.getDogeImage(breedName: event.breedName);
     await imageResponse.fold((error) => emit(Error()), (imageUrl) async {
       await emit(Success(imageUrl: imageUrl));
