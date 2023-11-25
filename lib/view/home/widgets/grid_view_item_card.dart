@@ -1,4 +1,7 @@
+import 'package:app_nation_case_study/injectable.dart';
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
+import 'package:app_nation_case_study/repository/breends/breeds_repository.dart';
+import 'package:app_nation_case_study/repository/breends/i_breends_repository.dart';
 import 'package:flutter/material.dart';
 
 import '../../../product/resources/sizes/sizes.dart';
@@ -13,7 +16,9 @@ class GridViewItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-         DetailDialog().show(context);
+        DetailDialog().show(context);
+        locator<IBreedsRepository>().getBreeds();
+        locator<IBreedsRepository>().getBreedsImages(breedName: 'african');
       },
       child: Stack(
         alignment: Alignment.bottomLeft,
