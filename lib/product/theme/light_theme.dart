@@ -4,17 +4,11 @@ import 'package:flutter/material.dart';
 class LightTheme {
   ThemeData get themeData => ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        inputDecorationTheme: InputDecorationTheme(
+
+        inputDecorationTheme: const InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: ColorPalette.systemGray5),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: ColorPalette.systemGray5),
-          ),
+          border: InputBorder.none,
         ),
         colorScheme: const ColorScheme.light(
           primary: ColorPalette.blue,

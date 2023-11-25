@@ -24,6 +24,7 @@ dependencies:
 
   #UI
   flutter_svg: ^2.0.9
+  draggable_menu: ^4.4.1
 
   #Navigation
   go_router: ^12.1.1
