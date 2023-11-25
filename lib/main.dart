@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'domain/bloc/home_bloc.dart';
+import 'domain/bloc/home/home_bloc.dart';
 import 'injectable.dart';
 
 Future<void> main() async {

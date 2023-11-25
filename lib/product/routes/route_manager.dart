@@ -3,7 +3,7 @@ import 'package:app_nation_case_study/presentation/settings/view/settings_view.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../domain/bloc/home_bloc.dart';
+import '../../domain/bloc/home/home_bloc.dart';
 import '../../presentation/splash/view/splash_view.dart';
 
 class RouteManager {

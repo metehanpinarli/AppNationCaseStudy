@@ -4,7 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import '../../../product/resources/sizes/sizes.dart';
 
 class ImageDialog extends StatelessWidget {
-  const ImageDialog({super.key});
+  const ImageDialog({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   show(BuildContext context) {
     showDialog(context: context, builder: (_) => this);
@@ -19,7 +21,7 @@ class ImageDialog extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const ImageWidget(),
+          ImageWidget(imageUrl: imageUrl),
           SizedBox(height: Sizes.defaultPadding),
           const CloseButton(),
         ],
@@ -53,14 +55,17 @@ class CloseButton extends StatelessWidget {
 class ImageWidget extends StatelessWidget {
   const ImageWidget({
     super.key,
+    required this.imageUrl,
   });
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(Sizes.minBorderRadius),
       child: Image.network(
-        'https://images.dog.ceo/breeds/chihuahua/n02085620_8636.jpg',
+        imageUrl,
         width: 256,
         height: 256,
         fit: BoxFit.fill,

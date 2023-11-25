@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../domain/repository/breends/i_breends_repository.dart';
+import '../../../../domain/repository/breends/i_breends_repository.dart';
 
 part 'home_event.dart';
 

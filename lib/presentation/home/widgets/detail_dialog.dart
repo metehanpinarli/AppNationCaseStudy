@@ -3,7 +3,10 @@ import 'package:app_nation_case_study/presentation/home/widgets/image_dialog.dar
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
 import 'package:app_nation_case_study/product/widgets/Divider/custom_divider_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../domain/bloc/dialog/dialog_bloc.dart';
+import '../../../injectable.dart';
 import '../../../product/resources/assets/assets_constants.dart';
 import '../../../product/resources/sizes/sizes.dart';
 
@@ -18,23 +21,26 @@ class DetailDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      insetPadding: EdgeInsets.symmetric(horizontal: Sizes.defaultPadding, vertical: 91),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(Sizes.minBorderRadius),
-        ),
-        child: Column(
-          children: [
-            Expanded(child: DialogImageWidget(imageUrl: dogEntity.imageUrl)),
-            Expanded(
-                child: DialogInformationWidget(
-              breed: dogEntity.breed,
-              subBreedFirst: dogEntity.subBreeds.isNotEmpty ? dogEntity.subBreeds[0]! : '',
-              subBreedSecond: dogEntity.subBreeds.length > 1 ? dogEntity.subBreeds[1]! : '',
-            )),
-          ],
+    return BlocProvider(
+      create: (context) => locator<DialogBloc>(),
+      child: Dialog(
+        insetPadding: EdgeInsets.symmetric(horizontal: Sizes.defaultPadding, vertical: 91),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(Sizes.minBorderRadius),
+          ),
+          child: Column(
+            children: [
+              Expanded(child: DialogImageWidget(imageUrl: dogEntity.imageUrl)),
+              Expanded(
+                  child: DialogInformationWidget(
+                breed: dogEntity.breed,
+                subBreedFirst: dogEntity.subBreeds.isNotEmpty ? dogEntity.subBreeds[0]! : '',
+                subBreedSecond: dogEntity.subBreeds.length > 1 ? dogEntity.subBreeds[1]! : '',
+              )),
+            ],
+          ),
         ),
       ),
     );
@@ -68,7 +74,16 @@ class DialogInformationWidget extends StatelessWidget {
           const CustomDividerWidget(),
           Text(subBreedFirst, style: context.textTheme.bodyMedium),
           Text(subBreedSecond, style: context.textTheme.bodyMedium),
-          ElevatedButton(onPressed: () => const ImageDialog().show(context), child: const Text('Generate')),
+          ElevatedButton(
+              onPressed: () {
+                context.read<DialogBloc>().add(GenerateImage(breedName: breed));
+                context.read<DialogBloc>().stream.listen((state) {
+                  if (state is Success) {
+                    ImageDialog(imageUrl: state.imageUrl).show(context);
+                  }
+                });
+              },
+              child: const Text('Generate')),
         ],
       ),
     );

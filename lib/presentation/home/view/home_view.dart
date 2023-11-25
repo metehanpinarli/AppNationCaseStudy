@@ -1,4 +1,4 @@
-import 'package:app_nation_case_study/domain/bloc/home_bloc.dart';
+import 'package:app_nation_case_study/domain/bloc/home/home_bloc.dart';
 import 'package:app_nation_case_study/presentation/home/widgets/grid_view_item_card.dart';
 import 'package:app_nation_case_study/presentation/home/widgets/search_input_widget.dart';
 import 'package:app_nation_case_study/product/resources/sizes/sizes.dart';
