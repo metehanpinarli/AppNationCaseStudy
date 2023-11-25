@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:app_nation_case_study/domain/entities/dog_entity.dart';
 import 'package:app_nation_case_study/domain/entities/failure_model.dart';
+import 'package:app_nation_case_study/product/routes/route_manager.dart';
 import 'package:bloc/bloc.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../domain/repository/breends/i_breends_repository.dart';
 
@@ -13,11 +16,13 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final IBreedsRepository _iBreedsRepository;
-   List<DogEntity> _dogList = [];
+  List<DogEntity> _dogList = [];
+  List<String> _imageList = [];
 
   HomeBloc(this._iBreedsRepository) : super(SplashInitial()) {
     on<GetData>(_onGetData);
     on<Search>(_onSearchData);
+    on<CacheImage>(_onImageCacheTest);
 
     add(GetData());
   }
@@ -30,11 +35,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       for (final image in imagesResponses) {
         image.fold((error) => emit(Error()), (imageUrl) {
+          _imageList.add(imageUrl);
+
           dogEntityList[imagesResponses.indexOf(image)] =
               dogEntityList[imagesResponses.indexOf(image)].copyWith(imageUrl: imageUrl);
         });
       }
-      _dogList=dogEntityList;
+      _dogList = dogEntityList;
       await emit(Success(dogList: dogEntityList));
     });
   }
@@ -45,8 +52,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(Success(dogList: searchResult));
   }
 
-
-
+  FutureOr<void> _onImageCacheTest(CacheImage event, emit) async {
+    for (final image in _imageList) {
+      await precacheImage(CachedNetworkImageProvider(image), event.context);
+    }
+  }
 
 
   List<Future<Either<FailureModel, String>>> futures(List<DogEntity> dogList) {

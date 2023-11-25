@@ -9,6 +9,15 @@ class GetData extends HomeEvent {
   List<Object?> get props => throw UnimplementedError();
 }
 
+class CacheImage extends HomeEvent {
+  final BuildContext context;
+  const CacheImage({required this.context});
+  @override
+  List<Object?> get props => throw UnimplementedError();
+}
+
+
+
 class Search extends HomeEvent {
   final String searchValue;
 

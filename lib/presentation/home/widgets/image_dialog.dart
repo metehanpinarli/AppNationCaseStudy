@@ -1,4 +1,5 @@
 import 'package:app_nation_case_study/product/resources/assets/assets_constants.dart';
+import 'package:app_nation_case_study/product/widgets/Image/custom_cache_network_imge_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../product/resources/sizes/sizes.dart';
@@ -64,12 +65,7 @@ class ImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(Sizes.minBorderRadius),
-      child: Image.network(
-        imageUrl,
-        width: 256,
-        height: 256,
-        fit: BoxFit.fill,
-      ),
+      child: CustomCacheNetworkImageWidget(imageUrl: imageUrl, width: 256, height: 256, fit: BoxFit.fill),
     );
   }
 }

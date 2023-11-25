@@ -1,7 +1,7 @@
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
+import 'package:app_nation_case_study/product/widgets/Image/custom_cache_network_imge_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../product/resources/sizes/sizes.dart';
-import 'detail_dialog.dart';
 
 class GridViewItemCard extends StatelessWidget {
   const GridViewItemCard({
@@ -26,7 +26,7 @@ class GridViewItemCard extends StatelessWidget {
             height: 164,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(imageUrl),
+                image: CustomCacheNetworkImageWidget(imageUrl: imageUrl).imageProvider,
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(Sizes.defaultBorderRadius),

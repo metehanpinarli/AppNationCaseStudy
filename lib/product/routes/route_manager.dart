@@ -14,7 +14,10 @@ class RouteManager {
             builder: (BuildContext context, GoRouterState state) => const SplashView(),
             redirect: (context, state) async {
               final blocState = context.watch<HomeBloc>().state;
-              if (blocState is Success) return '/home';
+              if (blocState is Success) {
+                context.read<HomeBloc>().add(CacheImage(context: context));
+                return '/home';
+              }
             },
           ),
           GoRoute(path: '/home', builder: (BuildContext context, GoRouterState state) => const HomeView()),

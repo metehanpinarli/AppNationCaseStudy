@@ -2,6 +2,7 @@ import 'package:app_nation_case_study/domain/entities/dog_entity.dart';
 import 'package:app_nation_case_study/presentation/home/widgets/image_dialog.dart';
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
 import 'package:app_nation_case_study/product/widgets/Divider/custom_divider_widget.dart';
+import 'package:app_nation_case_study/product/widgets/Image/custom_cache_network_imge_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -102,7 +103,7 @@ class DialogImageWidget extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(imageUrl),
+              image: CustomCacheNetworkImageWidget(imageUrl: imageUrl).imageProvider,
               fit: BoxFit.fill,
             ),
             borderRadius: BorderRadius.vertical(top: Radius.circular(Sizes.minBorderRadius)),
