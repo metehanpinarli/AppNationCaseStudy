@@ -1,6 +1,8 @@
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
 import 'package:app_nation_case_study/product/resources/style/color_palette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../domain/bloc/home_bloc.dart';
 
 
 class SearchInputWidget extends StatefulWidget {
@@ -21,6 +23,9 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
         cursorColor: ColorPalette.darkBlue,
         textInputAction: TextInputAction.search,
         decoration: const InputDecoration(hintText: 'Search'),
+        onChanged: (value) {
+          context.read<HomeBloc>().add(Search(searchValue: value));
+        }
       ),
     );
   }

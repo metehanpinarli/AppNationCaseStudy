@@ -1,20 +1,20 @@
-part of 'splash_bloc.dart';
+part of 'home_bloc.dart';
 
-abstract class SplashState extends Equatable {
-  const SplashState();
+abstract class HomeState extends Equatable {
+  const HomeState();
 }
 
-class SplashInitial extends SplashState {
+class SplashInitial extends HomeState {
   @override
   List<Object> get props => [];
 }
 
-class Loading extends SplashState {
+class Loading extends HomeState {
   @override
   List<Object> get props => [];
 }
 
-class Success extends SplashState {
+class Success extends HomeState {
   final List<DogEntity> dogList;
 
   const Success({required this.dogList});
@@ -23,7 +23,7 @@ class Success extends SplashState {
   List<Object?> get props => throw UnimplementedError();
 }
 
-class Error extends SplashState {
+class Error extends HomeState {
   @override
   List<Object> get props => [];
 }

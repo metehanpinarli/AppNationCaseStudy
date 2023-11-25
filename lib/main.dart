@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'domain/bloc/splash_bloc.dart';
+import 'domain/bloc/home_bloc.dart';
 import 'injectable.dart';
 
 Future<void> main() async {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => locator<SplashBloc>(),
+      create: (context) => locator<HomeBloc>(),
       child: MaterialApp.router(
         title: 'AppNation Case Study App',
         debugShowCheckedModeBanner: false,

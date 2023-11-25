@@ -4,19 +4,20 @@ import 'package:app_nation_case_study/domain/entities/failure_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 
 import '../../../domain/repository/breends/i_breends_repository.dart';
 
-part 'splash_event.dart';
+part 'home_event.dart';
 
-part 'splash_state.dart';
+part 'home_state.dart';
 
-class SplashBloc extends Bloc<SplashEvent, SplashState> {
+class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final IBreedsRepository _iBreedsRepository;
+   List<DogEntity> _dogList = [];
 
-  SplashBloc(this._iBreedsRepository) : super(SplashInitial()) {
+  HomeBloc(this._iBreedsRepository) : super(SplashInitial()) {
     on<GetData>(_onGetData);
+    on<Search>(_onSearchData);
 
     add(GetData());
   }
@@ -33,9 +34,20 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
               dogEntityList[imagesResponses.indexOf(image)].copyWith(imageUrl: imageUrl);
         });
       }
+      _dogList=dogEntityList;
       await emit(Success(dogList: dogEntityList));
     });
   }
+
+  FutureOr<void> _onSearchData(Search event, emit) async {
+    emit(Loading());
+    final searchResult = _dogList.where((element) => element.breed.contains(event.searchValue)).toList();
+    emit(Success(dogList: searchResult));
+  }
+
+
+
+
 
   List<Future<Either<FailureModel, String>>> futures(List<DogEntity> dogList) {
     List<Future<Either<FailureModel, String>>> futures = [];
