@@ -1,6 +1,6 @@
+import 'package:app_nation_case_study/presentation/home/widgets/image_dialog.dart';
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
 import 'package:app_nation_case_study/product/widgets/Divider/custom_divider_widget.dart';
-import 'package:app_nation_case_study/view/home/widgets/image_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../product/resources/assets/assets_constants.dart';

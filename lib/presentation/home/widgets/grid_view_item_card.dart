@@ -1,24 +1,23 @@
-import 'package:app_nation_case_study/injectable.dart';
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
-import 'package:app_nation_case_study/repository/breends/breeds_repository.dart';
-import 'package:app_nation_case_study/repository/breends/i_breends_repository.dart';
 import 'package:flutter/material.dart';
-
 import '../../../product/resources/sizes/sizes.dart';
 import 'detail_dialog.dart';
 
 class GridViewItemCard extends StatelessWidget {
   const GridViewItemCard({
     super.key,
+    required this.title,
+    required this.imageUrl,
   });
+
+  final String title;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        DetailDialog().show(context);
-        locator<IBreedsRepository>().getBreeds();
-        locator<IBreedsRepository>().getBreedsImages(breedName: 'african');
+        const DetailDialog().show(context);
       },
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -26,8 +25,8 @@ class GridViewItemCard extends StatelessWidget {
           Container(
             height: 164,
             decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: NetworkImage('https://images.dog.ceo/breeds/chihuahua/n02085620_8636.jpg'),
+              image: DecorationImage(
+                image: NetworkImage(imageUrl),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(Sizes.defaultBorderRadius),
@@ -41,7 +40,7 @@ class GridViewItemCard extends StatelessWidget {
                   bottomLeft: Radius.circular(Sizes.defaultBorderRadius),
                   topRight: Radius.circular(Sizes.maxBorderRadius)),
             ),
-            child: Text('Breed', style: context.textTheme.bodyMedium?.copyWith(color: Colors.white)),
+            child: Text(title, style: context.textTheme.bodyMedium?.copyWith(color: Colors.white)),
           ),
         ],
       ),

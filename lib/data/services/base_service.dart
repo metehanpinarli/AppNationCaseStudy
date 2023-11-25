@@ -1,7 +1,7 @@
 import 'package:app_nation_case_study/data/constants/api_constants.dart';
 import 'package:dio/dio.dart';
 
-import '../models/failure_model.dart';
+import '../../domain/entities/failure_model.dart';
 
 abstract class BaseService {
   BaseService();

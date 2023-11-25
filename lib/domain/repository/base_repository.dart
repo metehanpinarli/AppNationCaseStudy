@@ -2,7 +2,8 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 
-import '../data/models/failure_model.dart';
+import '../entities/failure_model.dart';
+
 
 abstract class BaseRepository {
   BaseRepository();
