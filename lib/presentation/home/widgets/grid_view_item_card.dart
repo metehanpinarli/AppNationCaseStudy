@@ -8,17 +8,17 @@ class GridViewItemCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.imageUrl,
+    required this.onTap,
   });
 
   final String title;
   final String imageUrl;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        const DetailDialog().show(context);
-      },
+      onTap: onTap,
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [

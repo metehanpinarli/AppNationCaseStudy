@@ -1,7 +1,7 @@
 class DogEntity {
   final String breed;
   final String imageUrl;
-  final List<String> subBreeds;
+  final List<String?> subBreeds;
 
   const DogEntity({
     required this.breed,

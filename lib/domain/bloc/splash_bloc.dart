@@ -4,6 +4,7 @@ import 'package:app_nation_case_study/domain/entities/failure_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 import '../../../domain/repository/breends/i_breends_repository.dart';
 
@@ -32,7 +33,6 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
               dogEntityList[imagesResponses.indexOf(image)].copyWith(imageUrl: imageUrl);
         });
       }
-
       await emit(Success(dogList: dogEntityList));
     });
   }

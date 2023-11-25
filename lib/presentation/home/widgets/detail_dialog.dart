@@ -1,3 +1,4 @@
+import 'package:app_nation_case_study/domain/entities/dog_entity.dart';
 import 'package:app_nation_case_study/presentation/home/widgets/image_dialog.dart';
 import 'package:app_nation_case_study/product/extension/context_extension.dart';
 import 'package:app_nation_case_study/product/widgets/Divider/custom_divider_widget.dart';
@@ -7,7 +8,9 @@ import '../../../product/resources/assets/assets_constants.dart';
 import '../../../product/resources/sizes/sizes.dart';
 
 class DetailDialog extends StatelessWidget {
-  const DetailDialog({super.key});
+  const DetailDialog({super.key, required this.dogEntity});
+
+  final DogEntity dogEntity;
 
   show(BuildContext context) {
     showDialog(context: context, builder: (_) => this);
@@ -22,10 +25,15 @@ class DetailDialog extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(Sizes.minBorderRadius),
         ),
-        child: const Column(
+        child: Column(
           children: [
-            Expanded(child: DialogImageWidget()),
-            Expanded(child: DialogInformationWidget()),
+            Expanded(child: DialogImageWidget(imageUrl: dogEntity.imageUrl)),
+            Expanded(
+                child: DialogInformationWidget(
+              breed: dogEntity.breed,
+              subBreedFirst: dogEntity.subBreeds.isNotEmpty ? dogEntity.subBreeds[0]! : '',
+              subBreedSecond: dogEntity.subBreeds.length > 1 ? dogEntity.subBreeds[1]! : '',
+            )),
           ],
         ),
       ),
@@ -36,7 +44,14 @@ class DetailDialog extends StatelessWidget {
 class DialogInformationWidget extends StatelessWidget {
   const DialogInformationWidget({
     super.key,
+    required this.breed,
+    required this.subBreedFirst,
+    required this.subBreedSecond,
   });
+
+  final String breed;
+  final String subBreedFirst;
+  final String subBreedSecond;
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +63,11 @@ class DialogInformationWidget extends StatelessWidget {
         children: [
           Text('Breed', style: context.textTheme.headlineMedium),
           const CustomDividerWidget(),
-          Text('Breed', style: context.textTheme.bodyMedium),
+          Text(breed, style: context.textTheme.bodyMedium),
           Text('Sub Breed', style: context.textTheme.headlineMedium),
           const CustomDividerWidget(),
-          Text('Sub Breed 1', style: context.textTheme.bodyMedium),
-          Text('Sub Breed 2', style: context.textTheme.bodyMedium),
+          Text(subBreedFirst, style: context.textTheme.bodyMedium),
+          Text(subBreedSecond, style: context.textTheme.bodyMedium),
           ElevatedButton(onPressed: () => const ImageDialog().show(context), child: const Text('Generate')),
         ],
       ),
@@ -61,9 +76,9 @@ class DialogInformationWidget extends StatelessWidget {
 }
 
 class DialogImageWidget extends StatelessWidget {
-  const DialogImageWidget({
-    super.key,
-  });
+  const DialogImageWidget({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +86,8 @@ class DialogImageWidget extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            image: const DecorationImage(
-              image: NetworkImage('https://images.dog.ceo/breeds/chihuahua/n02085620_8636.jpg'),
+            image: DecorationImage(
+              image: NetworkImage(imageUrl),
               fit: BoxFit.fill,
             ),
             borderRadius: BorderRadius.vertical(top: Radius.circular(Sizes.minBorderRadius)),
