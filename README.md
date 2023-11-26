@@ -53,11 +53,7 @@ Method channellar sayesinde Swift ve Kotlin kodlarına bağlanılarak işletim s
    flutter run
 
 ## Ekran Kaydı
+[](https://github.com/metehanpinarli/AppNationCaseStudy/assets/56471014/98f02eed-bc85-4004-9b81-a66627753357)
 
-
-https://github.com/metehanpinarli/AppNationCaseStudy/assets/56471014/98f02eed-bc85-4004-9b81-a66627753357
-
-
-[![Ekran Kaydı](screenshots/ekran_kaydi_thumbnail.png)](screenshots/ekran_kaydi.mp4)
 
 
