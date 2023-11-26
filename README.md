@@ -49,4 +49,4 @@ Projede paralel istek yapısı kurularak, resimler paralel olarak çekilmektedir
    
 3.Uygulamayı çalıştırın.
   ```bash
-   flutter run
+  flutter run
