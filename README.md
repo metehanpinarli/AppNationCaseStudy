@@ -33,9 +33,10 @@ Projede aşağıdaki Flutter paketleri kullanılmıştır:
 - **go_router: ^12.1.1**
   - Routing işlemleri için kullanılmıştır.
 
-## Paralel İstek Yapısı
+## Proje'de Kullanılan Yapılar
 
 Projede paralel istek yapısı kurularak, resimler paralel olarak çekilmektedir.
+Method channellar sayesinde Swift ve Kotlin kodlarına bağlanılarak işletim sistemi versiyonu bilgisi elde edilmektedir.
 
 ## Nasıl Çalıştırılır
 
@@ -47,6 +48,16 @@ Projede paralel istek yapısı kurularak, resimler paralel olarak çekilmektedir
    ```bash
    flutter pub get
    
-3.Uygulamayı çalıştırın.
-  ```bash
-  flutter run
+3. Uygulamayı çalıştırın.
+   ```bash
+   flutter run
+
+## Ekran Kaydı
+
+
+https://github.com/metehanpinarli/AppNationCaseStudy/assets/56471014/98f02eed-bc85-4004-9b81-a66627753357
+
+
+[![Ekran Kaydı](screenshots/ekran_kaydi_thumbnail.png)](screenshots/ekran_kaydi.mp4)
+
+
