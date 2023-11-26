@@ -48,6 +48,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> _onSearchData(Search event, emit) async {
     emit(Loading());
     final searchResult = _dogList.where((element) => element.breed.contains(event.searchValue)).toList();
+    if (searchResult.isEmpty) {
+      emit(NoResult());
+      return;
+    }
     emit(Success(dogList: searchResult));
   }
 

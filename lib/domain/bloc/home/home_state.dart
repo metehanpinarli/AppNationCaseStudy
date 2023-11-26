@@ -27,3 +27,8 @@ class Error extends HomeState {
   @override
   List<Object> get props => [];
 }
+
+class NoResult extends HomeState {
+  @override
+  List<Object> get props => [];
+}
