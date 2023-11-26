@@ -42,3 +42,11 @@ Projede paralel istek yapısı kurularak, resimler paralel olarak çekilmektedir
 1. Projeyi klonlayın.
    ```bash
    git clone https://github.com/kullanici/ad-nation-case-study.git
+   
+2. Bağımlılıkları yükleyin.
+   ```bash
+   flutter pub get
+   
+3.Uygulamayı çalıştırın.
+  ```bash
+   flutter run
