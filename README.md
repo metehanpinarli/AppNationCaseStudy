@@ -1,6 +1,6 @@
 # App Nation Case Study
 
-Bu proje, Flutter kullanılarak geliştirilmiş bir uygulamadır. Uygulama içinde native kodlara bağlanan method channellar kullanılmıştır. Bu method channellar sayesinde Swift ve Kotlin kodlarına bağlanılarak işletim sistemi versiyonu bilgisi elde edilmektedir.
+Bu proje, Flutter kullanılarak geliştirilmiş bir uygulamadır. Dog API kullanarak köpek türlerini ve resimlerini çeken bunlar içinde search yapma imkanı sunan bir uygulamadır.
 
 ## Kullanılan Paketler
 
