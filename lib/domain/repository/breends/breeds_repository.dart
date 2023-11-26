@@ -1,8 +1,4 @@
-import 'dart:developer';
-
-import 'package:app_nation_case_study/data/models/breeds_response_model.dart';
 import 'package:dartz/dartz.dart';
-import '../../../data/models/breed_image_response_model.dart';
 import '../../entities/dog_entity.dart';
 import '../../entities/failure_model.dart';
 import '../../../data/services/breeds_service.dart';

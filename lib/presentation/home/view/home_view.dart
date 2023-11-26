@@ -51,14 +51,14 @@ class SuccessStateWidget extends StatelessWidget {
                   childAspectRatio: (1 / 1),
                 ),
                 itemBuilder: (context, index) {
-                  final doge = state.dogList[index];
+                  final dog = state.dogList[index];
                   return GridViewItemCard(
                       title: state.dogList[index].breed,
                       imageUrl: state.dogList[index].imageUrl,
                       onTap: () {
                         showDialog(
                           context: context,
-                          builder: (context) => DetailDialog(dogEntity: doge),
+                          builder: (context) => DetailDialog(dogEntity: dog),
                         );
                       });
                 },

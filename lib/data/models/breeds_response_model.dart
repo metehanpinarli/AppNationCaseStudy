@@ -1,14 +1,3 @@
-// To parse this JSON data, do
-//
-//     final breedsResponseModel = breedsResponseModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
-import 'dart:convert';
-
-BreedsResponseModel breedsResponseModelFromJson(String str) => BreedsResponseModel.fromJson(json.decode(str));
-
-String breedsResponseModelToJson(BreedsResponseModel data) => json.encode(data.toJson());
-
 class BreedsResponseModel {
   final Map<String, List<String>> message;
   final String status;

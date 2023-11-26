@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import '../../resources/assets/assets_constants.dart';
 import '../../resources/style/color_palette.dart';
+import '../Divider/cutom_vertival_divider_widget.dart';
 import 'bottom_navigation_bar_painter.dart';
 
 class NavigationBarWidget extends StatelessWidget {
@@ -70,18 +71,3 @@ class NavigationBarItem extends StatelessWidget {
   }
 }
 
-class CustomVerticalDivider extends StatelessWidget {
-  const CustomVerticalDivider({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 2,
-      height: 24,
-      decoration: BoxDecoration(
-        color: ColorPalette.darkGray,
-        borderRadius: BorderRadius.circular(2),
-      ),
-    );
-  }
-}

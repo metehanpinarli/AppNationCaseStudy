@@ -10,7 +10,7 @@ import 'domain/repository/breends/i_breends_repository.dart';
 final locator = GetIt.instance;
 
 Future<void> setupLocator() async {
-// Services
+   // Services
   locator.registerLazySingleton<BreedsService>(() => BreedsService());
 
   // Repositories

@@ -12,13 +12,7 @@ class RouteManager {
           GoRoute(
             path: '/',
             builder: (BuildContext context, GoRouterState state) => const SplashView(),
-            redirect: (context, state) async {
-              final blocState = context.watch<HomeBloc>().state;
-              if (blocState is Success) {
-                context.read<HomeBloc>().add(CacheImage(context: context));
-                return '/home';
-              }
-            },
+            redirect: (context, state) async => _splashViewRedirectLogic(context, state),
           ),
           GoRoute(path: '/home', builder: (BuildContext context, GoRouterState state) => const HomeView()),
           GoRoute(
@@ -46,5 +40,15 @@ class RouteManager {
       position: animation.drive(tween),
       child: child,
     );
+  }
+
+  Future<String> _splashViewRedirectLogic(BuildContext context, GoRouterState state) async {
+    final blocState = context.watch<HomeBloc>().state;
+    if (blocState is Success) {
+      context.read<HomeBloc>().add(CacheImage(context: context));
+      return '/home';
+    } else {
+      return '/';
+    }
   }
 }

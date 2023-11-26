@@ -13,12 +13,12 @@ class FailureModel {
   factory FailureModel.fromJson(Map<String, dynamic> json) => FailureModel(
     code: json['code'],
     description: json['description'],
-    message: json['message']??'',
+    message: json['message'],
   );
 
   Object? code;
   String? description;
-  String message;
+  String? message;
 
   Map<String, dynamic> toJson() => {
     'code': code,

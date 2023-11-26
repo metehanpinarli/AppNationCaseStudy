@@ -3,7 +3,6 @@ import 'package:app_nation_case_study/product/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'domain/bloc/home/home_bloc.dart';
 import 'injectable.dart';
 

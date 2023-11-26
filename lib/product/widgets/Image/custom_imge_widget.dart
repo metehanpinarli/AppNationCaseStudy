@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CustomCacheNetworkImageWidget extends StatelessWidget {
-  const CustomCacheNetworkImageWidget({super.key, required this.imageUrl, this.fit, this.height, this.width});
+class CustomImageWidget extends StatelessWidget {
+  const CustomImageWidget({super.key, required this.imageUrl, this.fit, this.height, this.width});
 
   final String imageUrl;
   final BoxFit? fit;
@@ -16,7 +16,7 @@ class CustomCacheNetworkImageWidget extends StatelessWidget {
       fit: fit,
       height: height,
       width: width,
-      placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+      placeholder: (context, url) => const Center(child: CircularProgressIndicator.adaptive()),
       errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
     );
   }

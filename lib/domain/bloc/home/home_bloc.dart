@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'package:app_nation_case_study/domain/entities/dog_entity.dart';
 import 'package:app_nation_case_study/domain/entities/failure_model.dart';
-import 'package:app_nation_case_study/product/routes/route_manager.dart';
-import 'package:bloc/bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/repository/breends/i_breends_repository.dart';
 
@@ -17,12 +16,12 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final IBreedsRepository _iBreedsRepository;
   List<DogEntity> _dogList = [];
-  List<String> _imageList = [];
+  final List<String> _imageList = [];
 
   HomeBloc(this._iBreedsRepository) : super(SplashInitial()) {
     on<GetData>(_onGetData);
     on<Search>(_onSearchData);
-    on<CacheImage>(_onImageCacheTest);
+    on<CacheImage>(_onCacheImage);
 
     add(GetData());
   }
@@ -31,7 +30,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(Loading());
     final dogList = await _iBreedsRepository.getDogList();
     await dogList.fold((error) => emit(Error()), (dogEntityList) async {
-      final imagesResponses = await Future.wait(futures(dogEntityList));
+      final imagesResponses = await Future.wait(getImageRequestList(dogEntityList));
 
       for (final image in imagesResponses) {
         image.fold((error) => emit(Error()), (imageUrl) {
@@ -52,18 +51,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(Success(dogList: searchResult));
   }
 
-  FutureOr<void> _onImageCacheTest(CacheImage event, emit) async {
+  FutureOr<void> _onCacheImage(CacheImage event, emit) async {
     for (final image in _imageList) {
       await precacheImage(CachedNetworkImageProvider(image), event.context);
     }
   }
 
-
-  List<Future<Either<FailureModel, String>>> futures(List<DogEntity> dogList) {
-    List<Future<Either<FailureModel, String>>> futures = [];
+  List<Future<Either<FailureModel, String>>> getImageRequestList(List<DogEntity> dogList) {
+    List<Future<Either<FailureModel, String>>> requestList = [];
     for (var i = 0; i < dogList.length; i++) {
-      futures.add(_iBreedsRepository.getDogeImage(breedName: dogList[i].breed));
+      requestList.add(_iBreedsRepository.getDogeImage(breedName: dogList[i].breed));
     }
-    return futures;
+    return requestList;
   }
 }

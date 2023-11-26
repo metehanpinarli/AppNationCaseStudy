@@ -4,7 +4,6 @@ import 'package:dartz/dartz.dart';
 
 import '../entities/failure_model.dart';
 
-
 abstract class BaseRepository {
   BaseRepository();
 
