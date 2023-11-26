@@ -1,58 +1,58 @@
 # App Nation Case Study
 
-Bu proje, Flutter kullanılarak geliştirilmiş bir uygulamadır. Dog API kullanarak köpek türlerini ve resimlerini çeken bunlar içinde search yapma imkanı sunan bir uygulamadır.
+This project is a Flutter application that utilizes the Dog API to fetch dog breeds and their images, providing the capability to search among them.
 
-## Kullanılan Paketler
+## Used Packages
 
-Projede aşağıdaki Flutter paketleri kullanılmıştır:
+The following Flutter packages were used in the project:
 
 - **flutter_bloc: ^8.1.3**
-  - State management için kullanılmıştır.
+  - Used for state management.
 
 - **dartz: ^0.10.1**
-  - Fonksiyonel programlama özellikleri sunan bir pakettir.
+  - A package providing functional programming features.
 
 - **get_it: ^7.6.4**
-  - Dependency injection için kullanılmıştır.
+  - Used for dependency injection.
 
 - **equatable: ^2.0.5**
-  - Bloclarda kullanılan veri sınıflarının karşılaştırılmasını kolaylaştırmak için kullanılmıştır.
+  - Facilitates the comparison of data classes used in BLoCs.
 
 - **dio: ^5.3.4**
-  - Network işlemleri yönetimi için kullanılmıştır.
+  - Used for managing network operations.
 
 - **flutter_svg: ^2.0.9**
-  - SVG ikonlarını göstermek için kullanılmıştır.
+  - Utilized for displaying SVG icons.
 
 - **draggable_menu: ^4.4.1**
-  - Ana sayfadaki search inputunu genişletmek için kullanılmıştır.
+  - Used for expanding the search input on the main page.
 
 - **cached_network_image: ^3.3.0**
-  - Resimleri önbellekten göstermek için kullanılmıştır.
+  - Employed for displaying images from cache.
 
 - **go_router: ^12.1.1**
-  - Routing işlemleri için kullanılmıştır.
+  - Used for routing operations.
 
-## Proje'de Kullanılan Yapılar
+## Structures Used in the Project
 
-Projede paralel istek yapısı kurularak, resimler paralel olarak çekilmektedir.
-Method channellar sayesinde Swift ve Kotlin kodlarına bağlanılarak işletim sistemi versiyonu bilgisi elde edilmektedir.
+A parallel request structure is implemented in the project, allowing images to be fetched concurrently. 
+Method channels are utilized to connect with Swift and Kotlin code, retrieving information about the operating system version.
 
-## Nasıl Çalıştırılır
+## How to Run
 
-1. Projeyi klonlayın.
+1. Clone the project.
    ```bash
-   git clone https://github.com/kullanici/ad-nation-case-study.git
-   
-2. Bağımlılıkları yükleyin.
+   git clone https://github.com/user/app-nation-case-study.git
+
+2. Install dependencies.
    ```bash
    flutter pub get
-   
-3. Uygulamayı çalıştırın.
+
+3. Run the application.
    ```bash
    flutter run
 
-## Ekran Kaydı
+## Screen Record
 [](https://github.com/metehanpinarli/AppNationCaseStudy/assets/56471014/98f02eed-bc85-4004-9b81-a66627753357)
 
 
